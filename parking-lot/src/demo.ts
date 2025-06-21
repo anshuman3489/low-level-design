@@ -42,7 +42,9 @@ class ParkingLotDemo {
             try {
                 const ticket = parkingLot.parkVehicle(vehicle);
                 tickets.push(ticket);
-            } catch (error) {}
+            } catch (error) {
+                console.log(`Unable to park ${vehicle.type} with license plate ${vehicle.licensePlate}.`)
+            }
         }
 
         for (const ticket of tickets) {

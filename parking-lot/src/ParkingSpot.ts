@@ -10,6 +10,10 @@ export class ParkingSpot {
             throw new Error('Parking Spot is not available!');
         }
 
+        if (vehicle.type !== this.vehicleType) {
+            throw new Error('Incompatible vehicle type!');
+        }
+
         this.vehicle = vehicle;
     }
 
