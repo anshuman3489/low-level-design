@@ -2,19 +2,17 @@ import { Cell } from "./cell";
 import { Piece } from "./piece";
 
 export class Board {
-    size: number;
     private board: Cell[][];
 
-    constructor(size: number) {
-        if (!Number.isInteger(size)) {
-            throw new Error('Size must be an integer');
+    constructor(public size: number) {
+        if (!Number.isInteger(this.size) || this.size < 0) {
+            throw new Error('Size must be a positive integer');
         }
-        this.size = size;
         this.board = this.initializeBoard();
     }
 
     private initializeBoard() {
-        const board = []
+        const board: Cell[][] = [];
 
         for (let r = 0; r < this.size; r++) {
             const row = [];
@@ -110,9 +108,9 @@ export class Board {
     }
 
     print() {
+        console.log('Board:')
         for (let r = 0; r < this.size; r++) {
             this.printRow(r);
         }
-        console.log();
     }
 }

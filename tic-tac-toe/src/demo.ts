@@ -21,7 +21,7 @@ class TicTacToeDemo {
         game.printBoard();
 
         game.playMove(0, 0);
-        game.printBoard;
+        game.printBoard();
 
         game.playMove(1, 2);
         game.printBoard();
