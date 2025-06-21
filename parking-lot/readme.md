@@ -1,2 +1,0 @@
-- Used Strategy Pattern for calculating fees and making payments.
-- Used Singleton Pattern to create a single instance of parking lot. This can only be done if there is a single parking lot to manage.
