@@ -19,10 +19,10 @@ export class ParkingLot {
     }
 
     static getInstance() {
-        if (!this.instance) {
-            this.instance = new ParkingLot();
+        if (!ParkingLot.instance) {
+            ParkingLot.instance = new ParkingLot();
         }
-        return this.instance;
+        return ParkingLot.instance;
     }
 
     // Using Strategy pattern for calculating fee
