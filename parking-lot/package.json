@@ -1,5 +1,5 @@
 {
-  "name": "tic-tac-toe",
+  "name": "parking-lot",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
@@ -9,5 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.0.3"
+  }
 }
