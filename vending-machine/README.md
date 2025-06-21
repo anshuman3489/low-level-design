@@ -1,0 +1,1 @@
+- Use State design pattern to change behaviour of the vending machine in different states.
