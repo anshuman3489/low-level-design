@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "demo": "tsc && node dist/demo.js"
+    "demo": "tsc && node dist/Demo.js"
   },
   "keywords": [],
   "author": "",

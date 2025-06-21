@@ -1,1 +1,3 @@
 - Use State design pattern to change behaviour of the vending machine in different states.
+- Used abstract class to implement the state interface to add a common implementation for all methods. It might be preferable to use an interface if there are no default implementations.
+- It might be better to print statements when invalid methods are called. For example, cancelTransaction() is called in DispenseState.
