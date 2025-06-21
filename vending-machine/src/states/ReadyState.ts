@@ -19,7 +19,7 @@ export class ReadyState extends VendingMachineState {
         const payment = this.vendingMachine.payment;
         console.log(`Refunding ${payment} rupees!`);
 
-        this.vendingMachine.selectProduct = null;
+        this.vendingMachine.selectedProduct = null;
         this.vendingMachine.payment = 0;
         this.vendingMachine.setState(new IdleState(this.vendingMachine));
     }
