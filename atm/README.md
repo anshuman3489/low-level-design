@@ -1,0 +1,3 @@
+- Use State design pattern to change behaviour of the ATM in different states.
+- Used abstract class to implement the state interface to add a common implementation for all methods. It might be preferable to use an interface if there are no default implementations.
+- Use Chain of Responsibility pattern to withdraw cash (2000, 500, 100 notes).
