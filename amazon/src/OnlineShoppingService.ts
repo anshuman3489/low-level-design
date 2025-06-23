@@ -24,18 +24,20 @@ export class OnlineShoppingService {
     }
 
     addUser(name: string, email: string) {
-        this.userManager.addUser(name, email);
+        return this.userManager.addUser(name, email);
     }
 
     addProductStock(id: string, name: string, price: number, quantity: number) {
         const product = this.productManager.addProduct(id, name, price);
         this.productManager.addStock(product, quantity);
+        return product;
     }
 
     searchProduct(keyword: string): Product[] {
         keyword = keyword.toLowerCase().trim();
         const matchingProducts: Product[] = [];
         for (const product of this.productManager.products.values()) {
+            // Product might be out of stock
             if (product.name.toLowerCase().includes(keyword)) {
                 matchingProducts.push(product);
             }
@@ -102,5 +104,11 @@ export class OnlineShoppingService {
         }
 
         this.cancelOrder(order);
+    }
+
+    listInventory() {
+        for (const [product, quantity] of this.productManager.stock) {
+            console.log(`${quantity} items of ${product.name} worth ${product.price} rupees is in stock!`);
+        }
     }
 }
