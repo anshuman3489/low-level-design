@@ -1,0 +1,37 @@
+# Online Shopping Service (Amazon)
+- User
+    - name
+    - email
+- Product
+    - name
+    - price
+- ProductManager (Singleton Pattern)
+    - tracks inventory of products
+    - add stock of products
+    - remove product (when ordered or other reasons)
+- Cart
+    - user
+    - products
+    - add product
+    - remove product
+    - clear cart
+    - getTotalValue
+    - order a cart (with payment)
+- UserManager (Singleton Pattern)
+    - tracks users
+    - track user to cart mapping
+    - getUserCart
+- Order
+    - user
+    - status (CREATED, SHIPPED, DELIVERED, CANCELED)
+    - track order
+    - notification to user on order status updates (Observer Pattern)
+- OrderManager (Singleton Pattern)
+    - list of orders
+    - create new order
+- Payment
+    - different modes of payments (Stratgy Pattern)
+- OnlineShoppingService (Singleton Pattern)
+    - Product Manager
+    - User Manager
+    - Order Manager
