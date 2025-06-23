@@ -10,16 +10,18 @@ export class Reservation {
     status: ReservationStatus;
 
     constructor(public id: string, public room: Room, public guest: Guest, public checkInDate: Date, public checkOutDate: Date) {
+        console.log(`Reservation ${this.id} confirmed!`);
         this.status = ReservationStatus.CONFIRMED;
     }
 
     cancel() {
-        if (!(this.status !== ReservationStatus.CONFIRMED)) {
+        if (this.status !== ReservationStatus.CONFIRMED) {
             throw new Error('Reservation is already canceled');
         }
         
         this.status = ReservationStatus.CANCELED;
         this.room.checkOut();
+        console.log(`Reservation ${this.id} canceled!`);
     }
 
     private getDays() {

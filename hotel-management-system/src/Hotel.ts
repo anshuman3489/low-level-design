@@ -26,12 +26,13 @@ export class Hotel {
     addRoom(id: string, price: number, type: RoomType): Room {
         let room = this.rooms.get(id);
         if (room) {
-            console.log('Room already exists');
+            console.warn('Room already exists');
             return room;
         }
 
         room = RoomFactory.createRoom(id, type, price);
         this.rooms.set(id, room);
+        console.log(`${type} Room ${id} created!`);
         return room;
     }
 
@@ -41,6 +42,8 @@ export class Hotel {
                 return room;
             }
         }
+
+        console.log(`No ${type} room is available`);
         return null;
     }
     
@@ -54,7 +57,7 @@ export class Hotel {
     
     cancelReservation(id: string) {
         const reservation = this.reservations.get(id);
-        if (!reservation) {
+        if (reservation) {
             reservation.cancel();
             this.reservations.delete(id);
         }

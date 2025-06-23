@@ -1,4 +1,4 @@
 export enum RoomType {
-    STANDARD,
-    SUITE,
+    STANDARD = 'Standard',
+    SUITE = 'Suite',
 }

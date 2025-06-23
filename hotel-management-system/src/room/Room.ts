@@ -15,7 +15,7 @@ export abstract class Room {
     }
 
     book() {
-        if (!(this.status !== RoomStatus.AVAILABLE)) {
+        if (this.status !== RoomStatus.AVAILABLE) {
             throw new Error('Room is not available!');
         }
 
@@ -23,7 +23,7 @@ export abstract class Room {
     }
 
     checkIn() {
-        if (!(this.status !== RoomStatus.BOOKED)) {
+        if (this.status !== RoomStatus.BOOKED) {
             throw new Error('Please book the room first!');
         }
 
@@ -31,8 +31,8 @@ export abstract class Room {
     }
 
     checkOut() {
-        if (!(this.status !== RoomStatus.OCCUPIED)) {
-            throw new Error('Room is not occupied!');
+        if (this.status === RoomStatus.AVAILABLE) {
+            throw new Error('Room is not booked or occupied!');
         }
 
         this.status = RoomStatus.AVAILABLE;
