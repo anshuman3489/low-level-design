@@ -19,8 +19,11 @@ export class Demo {
         
         amazon.addToCart(book2, user2, 1);
 
-        amazon.placeOrder(user1, new CardPaymentStrategy()); // successful order
-        amazon.placeOrder(user2, new WalletPaymentStrategy()); // unsuccessful order
+        const order1 = amazon.placeOrder(user1, new CardPaymentStrategy()); // successful order
+        const order2 = amazon.placeOrder(user2, new WalletPaymentStrategy()); // unsuccessful order
+
+        order1.ship();
+        order1.deliver();
 
         // List Inventory
         amazon.listInventory();

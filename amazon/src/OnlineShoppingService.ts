@@ -62,13 +62,13 @@ export class OnlineShoppingService {
         user.cart.clear();
     }
 
-    placeOrder(user: User, payment: PaymentStrategy): boolean {
+    placeOrder(user: User, payment: PaymentStrategy): Order {
         const cart = user.cart;
 
         for (const [product, quantity] of cart.products) {
             if (!this.productManager.isAvailable(product, quantity)) {
                 console.warn(`Product ${product.name} went out of stock!`);
-                return false;
+                return;
             }
         }
 
@@ -87,7 +87,9 @@ export class OnlineShoppingService {
             order.confirm();
         } else {
             this.cancelOrder(order);
-        }        
+        }
+
+        return order;
     }
 
     private cancelOrder(order: Order) {
