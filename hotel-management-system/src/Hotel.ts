@@ -8,8 +8,8 @@ import { PaymentStrategy } from "./payment/PaymentStrategy";
 
 export class Hotel {
     static instance: Hotel;
-    rooms: Map<String, Room>;
-    reservations: Map<String, Reservation>;
+    rooms: Map<string, Room>;
+    reservations: Map<string, Reservation>;
 
     private constructor() {
         this.rooms = new Map();
@@ -48,6 +48,10 @@ export class Hotel {
     }
     
     bookRoom(room: Room, guest: Guest, checkInDate: Date, checkOutDate: Date): Reservation {
+        if (checkInDate > checkOutDate) {
+            throw new Error(`Check-in date can't be later than check-out date!`);
+        }
+        
         room.book();
         const reservationId = randomUUID();
         const reservation = new Reservation(reservationId, room, guest, checkInDate, checkOutDate);
