@@ -26,12 +26,18 @@
     - status (CREATED, SHIPPED, DELIVERED, CANCELED)
     - track order
     - notification to user on order status updates (Observer Pattern)
-- OrderManager (Singleton Pattern)
+<!-- - OrderManager (Singleton Pattern)
     - list of orders
-    - create new order
+    - create new order -->
 - Payment
     - different modes of payments (Stratgy Pattern)
 - OnlineShoppingService (Singleton Pattern)
     - Product Manager
     - User Manager
     - Order Manager
+    - Search Products by Keyword
+
+Notes after implementation:
+- OrderItem can be separated from product, as product can be changed (name, price, etc). Keep a reference to original Product in OrderItem.
+- Cancel order should trigger refund as well. Payment Method can be stored with order, and refund can be initiated on the same method.
+- No need of order or cart manager. User can manage both orders and cart.
