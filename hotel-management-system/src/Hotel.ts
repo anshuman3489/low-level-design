@@ -5,6 +5,8 @@ import { RoomFactory } from "./room/RoomFactory";
 import { RoomType } from "./room/RoomType";
 import { Guest } from "./Guest";
 import { PaymentStrategy } from "./payment/PaymentStrategy";
+import { StandardRoom } from "./room/StandardRoom";
+import { Suite } from "./room/Suite";
 
 export class Hotel {
     static instance: Hotel;
